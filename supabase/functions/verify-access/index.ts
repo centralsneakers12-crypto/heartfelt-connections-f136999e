@@ -10,7 +10,14 @@ Deno.serve(async (req) => {
 
   try {
     const { password } = await req.json();
-    const ACCESS_PASSWORD = '0800';
+    const ACCESS_PASSWORD = Deno.env.get('ACCESS_PASSWORD');
+
+    if (!ACCESS_PASSWORD) {
+      return new Response(JSON.stringify({ error: 'Password not configured' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
 
     if (password === ACCESS_PASSWORD) {
       return new Response(JSON.stringify({ success: true }), {
