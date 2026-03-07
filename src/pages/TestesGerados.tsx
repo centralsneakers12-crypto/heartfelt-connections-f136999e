@@ -44,7 +44,7 @@ const TestesGerados = () => {
 
   const fetchTrials = async () => {
     setLoading(true);
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from("trial_keys")
       .select("*")
       .order("created_at", { ascending: false });
@@ -53,7 +53,7 @@ const TestesGerados = () => {
       toast.error("Erro ao carregar dados.");
       console.error(error);
     } else {
-      setTrials(data || []);
+      setTrials((data as TrialKey[]) || []);
     }
     setLoading(false);
   };
