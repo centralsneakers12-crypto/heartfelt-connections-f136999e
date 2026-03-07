@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Allow anon to read trial_keys" ON public.trial_keys;
