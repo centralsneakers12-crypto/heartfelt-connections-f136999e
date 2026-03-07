@@ -7,6 +7,11 @@ const corsHeaders = {
 
 const API_BASE_URL = 'https://api.leigosacademy.site';
 
+const ALLOWED_ENDPOINTS = [
+  '/reseller-api/licenses/trial',
+  '/reseller-api/licenses/verify',
+];
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -21,17 +26,53 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { endpoint, method, body } = await req.json();
+    const reqBody = await req.json();
+    const { endpoint, method, body } = reqBody;
 
-    if (!endpoint || !endpoint.startsWith('/') || endpoint.includes('..')) {
+    // Validate endpoint
+    if (!endpoint || typeof endpoint !== 'string' || !endpoint.startsWith('/') || endpoint.includes('..')) {
       return new Response(JSON.stringify({ error: 'Invalid endpoint' }), {
         status: 400,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
 
+    // Whitelist allowed endpoints
+    if (!ALLOWED_ENDPOINTS.some(allowed => endpoint.startsWith(allowed))) {
+      return new Response(JSON.stringify({ error: 'Endpoint not allowed' }), {
+        status: 403,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Validate method
+    const allowedMethods = ['GET', 'POST'];
+    const sanitizedMethod = (typeof method === 'string' ? method.toUpperCase() : 'GET');
+    if (!allowedMethods.includes(sanitizedMethod)) {
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Validate body fields if present
+    if (body && typeof body === 'object') {
+      if (body.client_name && (typeof body.client_name !== 'string' || body.client_name.length > 100)) {
+        return new Response(JSON.stringify({ error: 'Invalid client_name' }), {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+      if (body.client_whatsapp && (typeof body.client_whatsapp !== 'string' || body.client_whatsapp.length > 20)) {
+        return new Response(JSON.stringify({ error: 'Invalid client_whatsapp' }), {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+    }
+
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-      method: method || 'GET',
+      method: sanitizedMethod,
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': API_KEY,
@@ -49,12 +90,12 @@ Deno.serve(async (req) => {
         const supabase = createClient(supabaseUrl, supabaseKey);
 
         await supabase.from('trial_keys').insert({
-          client_name: body.client_name || '',
-          client_whatsapp: body.client_whatsapp || '',
-          fingerprint: body.fingerprint || null,
-          ip: body.ip || null,
+          client_name: (body.client_name || '').slice(0, 100),
+          client_whatsapp: (body.client_whatsapp || '').slice(0, 20),
+          fingerprint: body.fingerprint ? String(body.fingerprint).slice(0, 500) : null,
+          ip: body.ip ? String(body.ip).slice(0, 45) : null,
           generated_key: body.is_duplicate ? null : (data?.key || null),
-          is_duplicate: body.is_duplicate || false,
+          is_duplicate: !!body.is_duplicate,
         });
       } catch (dbError) {
         console.error('Failed to save trial key:', dbError);
@@ -65,10 +106,9 @@ Deno.serve(async (req) => {
       status: response.status,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
-  } catch (error) {
-    console.error('Proxy error:', error);
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
+  } catch {
+    return new Response(JSON.stringify({ error: 'Invalid request' }), {
+      status: 400,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   }

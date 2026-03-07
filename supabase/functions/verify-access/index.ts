@@ -11,11 +11,26 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { password } = await req.json();
-    const ACCESS_PASSWORD = Deno.env.get('ACCESS_PASSWORD');
+    const body = await req.json();
+    const password = typeof body?.password === 'string' ? body.password.trim() : '';
 
-    if (!ACCESS_PASSWORD || password !== ACCESS_PASSWORD) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+    if (!password || password.length > 100) {
+      return new Response(JSON.stringify({ error: 'Invalid request' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const ACCESS_PASSWORD = Deno.env.get('ACCESS_PASSWORD');
+    if (!ACCESS_PASSWORD) {
+      return new Response(JSON.stringify({ error: 'Server misconfigured' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (password !== ACCESS_PASSWORD) {
+      return new Response(JSON.stringify({ success: false, error: 'Senha incorreta' }), {
         status: 401,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
@@ -32,7 +47,7 @@ Deno.serve(async (req) => {
       .order('created_at', { ascending: false });
 
     if (error) {
-      return new Response(JSON.stringify({ error: error.message }), {
+      return new Response(JSON.stringify({ error: 'Database error' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
@@ -41,9 +56,9 @@ Deno.serve(async (req) => {
     return new Response(JSON.stringify({ success: true, data }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
+  } catch {
+    return new Response(JSON.stringify({ error: 'Invalid request' }), {
+      status: 400,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   }
