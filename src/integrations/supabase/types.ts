@@ -59,6 +59,39 @@ export type Database = {
         }
         Relationships: []
       }
+      trial_keys: {
+        Row: {
+          client_name: string
+          client_whatsapp: string
+          created_at: string
+          fingerprint: string | null
+          generated_key: string | null
+          id: string
+          ip: string | null
+          is_duplicate: boolean
+        }
+        Insert: {
+          client_name?: string
+          client_whatsapp?: string
+          created_at?: string
+          fingerprint?: string | null
+          generated_key?: string | null
+          id?: string
+          ip?: string | null
+          is_duplicate?: boolean
+        }
+        Update: {
+          client_name?: string
+          client_whatsapp?: string
+          created_at?: string
+          fingerprint?: string | null
+          generated_key?: string | null
+          id?: string
+          ip?: string | null
+          is_duplicate?: boolean
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
