@@ -34,7 +34,7 @@ const TestesGerados = () => {
         toast.error("Senha incorreta!");
       } else {
         setAuthenticated(true);
-        fetchTrials();
+        setTrials(data.data || []);
       }
     } catch {
       toast.error("Erro ao verificar senha.");
@@ -44,16 +44,17 @@ const TestesGerados = () => {
 
   const fetchTrials = async () => {
     setLoading(true);
-    const { data, error } = await (supabase as any)
-      .from("trial_keys")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (error) {
+    try {
+      const { data, error } = await supabase.functions.invoke("verify-access", {
+        body: { password },
+      });
+      if (error || !data?.success) {
+        toast.error("Erro ao carregar dados.");
+      } else {
+        setTrials(data.data || []);
+      }
+    } catch {
       toast.error("Erro ao carregar dados.");
-      console.error(error);
-    } else {
-      setTrials((data as TrialKey[]) || []);
     }
     setLoading(false);
   };
