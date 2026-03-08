@@ -45,7 +45,7 @@ const Index = () => {
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground relative z-10">
         <div className="container mx-auto px-4">
-          <p>© 2024 LovaZero. Todos os direitos reservados.</p>
+          <p>© 2024 LovaZero — Lovable Grátis e Infinito. Todos os direitos reservados.</p>
         </div>
       </footer>
       <SocialProofNotification />
