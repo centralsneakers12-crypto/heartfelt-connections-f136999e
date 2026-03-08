@@ -33,7 +33,7 @@ const Index = () => {
       <FeaturesSection />
       <HowItWorksSection />
       <PricingSection />
-      <FreeTrialButton />
+      
       <TargetAudienceSection />
       <GuaranteeSection />
       <MotivationSection />
