@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Teste from "./pages/Teste";
 import TestesGerados from "./pages/TestesGerados";
+import Assinar from "./pages/Assinar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
