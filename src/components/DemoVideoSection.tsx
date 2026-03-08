@@ -13,7 +13,7 @@ const DemoVideoSection = () => {
           className="text-center mb-6"
         >
           <p className="text-lg font-semibold flex items-center justify-center gap-2">
-            🚀 Veja o LovaZero em ação
+            🚀 Esse Site foi feito inteiramente por essa extensão
           </p>
           <p className="text-muted-foreground text-sm max-w-lg mx-auto mt-1">
             Sim, isso mesmo. Esse site foi inteiramente feito e hospedado por essa extensão sem gastar um único crédito.
