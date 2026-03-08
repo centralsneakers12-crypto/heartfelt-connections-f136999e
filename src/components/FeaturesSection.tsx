@@ -6,7 +6,7 @@ const features = [
   {
     icon: Lock,
     title: "Bloqueio do Chat",
-    description: "Bloqueie o chat da Lovable e evite que seus créditos sejam consumidos automaticamente.",
+    description: "Bloqueie o chat da Lovable e evite que seus créditos sejam consumidos. Lovable de graça de verdade.",
   },
   {
     icon: FileUp,
@@ -26,7 +26,7 @@ const features = [
   {
     icon: FolderPlus,
     title: "Novo Projeto Grátis",
-    description: "Crie novos projetos sem gastar nenhum crédito. Ilimitado de verdade.",
+    description: "Crie novos projetos sem gastar nenhum crédito. Lovable ilimitado e unlimited de verdade.",
   },
   {
     icon: EyeOff,
@@ -35,8 +35,8 @@ const features = [
   },
   {
     icon: Globe,
-    title: "Publicar Projeto",
-    description: "Publique seu projeto diretamente, pronto para o mundo ver — sem etapas extras.",
+    title: "Hospedagem Grátis",
+    description: "Publique e hospede seu projeto gratuitamente. Lovable com hospedagem inclusa, pronto para o mundo ver.",
   },
 ];
 
@@ -44,7 +44,7 @@ const FeaturesSection = () => {
   const playStarSound = useStarSound();
 
   return (
-    <section id="recursos" className="py-20 md:py-28 relative z-10">
+    <section id="recursos" className="py-20 md:py-28 relative z-10" aria-label="Funcionalidades do Lovable grátis e ilimitado">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ const FeaturesSection = () => {
             Tudo que a extensão <span className="text-gradient-purple">faz por você</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Funcionalidades poderosas que transformam sua experiência com a Lovable. Tudo incluso, sem custo extra.
+            Funcionalidades que tornam o Lovable grátis, ilimitado e com hospedagem. Tudo incluso, sem custo extra.
           </p>
         </motion.div>
 
