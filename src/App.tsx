@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Teste from "./pages/Teste";
 import TestesGerados from "./pages/TestesGerados";
 import Assinar from "./pages/Assinar";
+import Download from "./pages/Download";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
