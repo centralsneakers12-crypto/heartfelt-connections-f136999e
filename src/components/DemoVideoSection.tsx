@@ -16,7 +16,7 @@ const DemoVideoSection = () => {
             🚀 Veja o LovaZero em ação
           </p>
           <p className="text-muted-foreground text-sm max-w-lg mx-auto mt-1">
-            Assista a demonstração e veja a extensão funcionando sem consumir nenhum crédito.
+            Sim, isso mesmo. Esse site foi inteiramente feito e hospedado por essa extensão sem gastar um único crédito.
           </p>
         </motion.div>
 
