@@ -8,24 +8,32 @@ import { motion } from "framer-motion";
 
 const faqs = [
   {
-    question: "Como o LovaZero funciona?",
-    answer: "A extensão desbloqueia o uso ilimitado do Lovable, permitindo que você envie quantos prompts quiser sem consumir créditos. Instale, ative e crie.",
+    question: "Como usar o Lovable grátis?",
+    answer: "Com o LovaZero, você instala a extensão no navegador e usa o Lovable de graça, sem limites de créditos. A ativação é instantânea e funciona com qualquer conta.",
   },
   {
-    question: "É seguro usar?",
+    question: "O Lovable fica grátis pra sempre com o LovaZero?",
+    answer: "Sim! Enquanto sua assinatura estiver ativa, o Lovable funciona de forma ilimitada e gratuita. Sem limites de prompts ou créditos.",
+  },
+  {
+    question: "O LovaZero inclui hospedagem?",
+    answer: "Sim! Com o LovaZero você consegue publicar e hospedar seus projetos diretamente, sem custos extras de hospedagem.",
+  },
+  {
+    question: "É seguro usar o Lovable de graça com o LovaZero?",
     answer: "Sim! A extensão é totalmente segura. Ela não altera seus dados nem compromete sua conta.",
   },
   {
     question: "Em quais navegadores funciona?",
-    answer: "Chrome, Firefox, Edge e Opera.",
+    answer: "Chrome, Firefox, Edge e Opera. Compatível com todos os navegadores principais para usar o Lovable unlimited.",
   },
   {
     question: "E se a extensão parar de funcionar?",
-    answer: "Nosso suporte via WhatsApp está sempre disponível. Oferecemos atualizações automáticas para garantir compatibilidade.",
+    answer: "Nosso suporte via WhatsApp está sempre disponível. Oferecemos atualizações automáticas para garantir compatibilidade com o Lovable ilimitado.",
   },
   {
     question: "Quanto tempo leva para ativar?",
-    answer: "A ativação é instantânea. Após o pagamento, você recebe sua licença e pode começar em menos de 2 minutos.",
+    answer: "A ativação é instantânea. Após o pagamento, você recebe sua licença e pode começar a usar o Lovable de graça em menos de 2 minutos.",
   },
   {
     question: "Posso usar em mais de um computador?",

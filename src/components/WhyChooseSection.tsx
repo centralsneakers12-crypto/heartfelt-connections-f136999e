@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Zap, Gauge, Clock, Settings } from "lucide-react";
+import { Zap, Gauge, Clock, Globe } from "lucide-react";
 import useStarSound from "@/hooks/useStarSound";
 
 const items = [
   {
     icon: Zap,
-    title: "Uso 100% Ilimitado",
-    description: "Crie quantos projetos quiser, sem limite de créditos. Use o Lovable o dia inteiro sem preocupações.",
+    title: "Lovable Unlimited",
+    description: "Use o Lovable ilimitado e de graça. Crie quantos projetos quiser, sem limite de créditos.",
   },
   {
     icon: Gauge,
@@ -14,14 +14,14 @@ const items = [
     description: "Sem filas, sem espera. Suas requisições são processadas com prioridade total.",
   },
   {
-    icon: Clock,
-    title: "Plano Mensal",
-    description: "Assine por R$ 97 a cada 30 dias, com renovação simples e sem surpresas.",
+    icon: Globe,
+    title: "Hospedagem Inclusa",
+    description: "Publique e hospede seus projetos gratuitamente. Lovable com hospedagem sem custo extra.",
   },
   {
-    icon: Settings,
-    title: "Setup em 2 Minutos",
-    description: "Instale a extensão, ative sua licença e comece a criar imediatamente.",
+    icon: Clock,
+    title: "Grátis Pra Sempre",
+    description: "Lovable grátis pra sempre com plano acessível. Sem surpresas, sem limites.",
   },
 ];
 
@@ -29,7 +29,7 @@ const WhyChooseSection = () => {
   const playStarSound = useStarSound();
 
   return (
-    <section className="py-20 md:py-28 relative z-10">
+    <section className="py-20 md:py-28 relative z-10" aria-label="Lovable de graça e ilimitado">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ const WhyChooseSection = () => {
             Por que escolher o <span className="text-gradient-purple">LovaZero?</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Tudo o que você precisa para criar sem limites, em uma única extensão.
+            Tudo o que você precisa para usar o Lovable de graça e ilimitado, em uma única extensão.
           </p>
         </motion.div>
 

@@ -11,23 +11,23 @@ const MotivationSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-8">
-            Da Ideia ao App Completo
+            Lovable de Graça: Da Ideia ao App Completo
           </h2>
 
           <div className="space-y-4 text-muted-foreground mb-8">
             <p>Quantos projetos você deixou de criar por falta de créditos?</p>
             <p>Quantas ideias ficaram pela metade porque você atingiu o limite?</p>
-            <p>Quantas oportunidades de negócio você perdeu?</p>
+            <p>Já pensou em como usar Lovable grátis sem restrições?</p>
           </div>
 
-          <p className="text-xl font-bold text-primary mb-8">Isso acaba agora.</p>
+          <p className="text-xl font-bold text-primary mb-8">Isso acaba agora. Lovable unlimited é realidade.</p>
 
           <p className="text-muted-foreground mb-8">
-            Com o LovaZero, você cria sem restrições. Sem calcular créditos. Sem pausas forçadas. Apenas você, suas ideias e o poder da IA.
+            Com o LovaZero, você tem Lovable grátis pra sempre. Crie sem restrições, sem calcular créditos, com hospedagem inclusa. Lovable ilimitado e de graça.
           </p>
 
           <Button size="lg" asChild className="glow-purple font-bold bg-gradient-to-r from-primary to-accent hover:opacity-90">
-            <a href="#precos">🔥 QUERO CRIAR SEM LIMITES</a>
+            <a href="#precos">🔥 QUERO LOVABLE GRÁTIS</a>
           </Button>
         </motion.div>
       </div>

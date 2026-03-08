@@ -5,7 +5,7 @@ import logo from "@/assets/lovazero-logo-wide.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative flex flex-col items-center justify-start overflow-hidden text-center pt-4 md:pt-6 pb-4">
+    <section className="relative flex flex-col items-center justify-start overflow-hidden text-center pt-4 md:pt-6 pb-4" aria-label="Lovable grátis pra sempre, ilimitado e de graça">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/8 via-transparent to-accent/5 pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
         <motion.div
@@ -14,7 +14,7 @@ const HeroSection = () => {
           transition={{ duration: 0.4 }}
           className="mb-1"
         >
-          <img src={logo} alt="LovaZero" className="h-16 md:h-20 mx-auto drop-shadow-lg" />
+          <img src={logo} alt="LovaZero - Lovable Grátis e Ilimitado" className="h-16 md:h-20 mx-auto drop-shadow-lg" />
         </motion.div>
 
         <motion.div
@@ -35,9 +35,9 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-4"
         >
-          Lovable sem limites.
+          Lovable Grátis e Unlimited.
           <br />
-          <span className="text-gradient-purple">Todo mês.</span>
+          <span className="text-gradient-purple">Pra sempre.</span>
         </motion.h1>
 
         <motion.p
@@ -46,7 +46,7 @@ const HeroSection = () => {
           transition={{ duration: 0.4, delay: 0.25 }}
           className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-6"
         >
-          <span className="text-foreground font-semibold">LovaZero</span> é a extensão que remove todas as limitações de créditos do Lovable. Crie projetos ilimitados, sem pausas, sem restrições com plano mensal acessível.
+          <span className="text-foreground font-semibold">LovaZero</span> é a extensão que torna o Lovable de graça e ilimitado. Use o Lovable sem limites de créditos, com hospedagem inclusa e sem restrições.
         </motion.p>
 
         <motion.div
