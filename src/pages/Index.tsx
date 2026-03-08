@@ -51,7 +51,6 @@ const Index = () => {
       <SocialProofNotification />
     </div>
   );
-  );
 };
 
 export default Index;
