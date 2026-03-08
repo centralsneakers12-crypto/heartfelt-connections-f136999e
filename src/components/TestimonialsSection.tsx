@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    quote: "Finalizei 3 projetos completos em uma semana usando o LovaZero. Antes eu ficava preso calculando créditos o tempo todo.",
+    quote: "Finalizei 3 projetos usando o Lovable de graça com o LovaZero. Antes eu ficava preso calculando créditos o tempo todo.",
     name: "Lucas M.",
     role: "Desenvolvedor Full-Stack",
     initials: "LM",
   },
   {
-    quote: "Agora posso testar todas as ideias que tenho no Lovable sem me preocupar com limites. Mudou meu fluxo completamente.",
+    quote: "Agora tenho Lovable grátis pra sempre e posso testar todas as ideias sem me preocupar com limites. Mudou meu fluxo completamente.",
     name: "Ana Paula S.",
     role: "Designer UI/UX",
     initials: "AP",
   },
   {
-    quote: "Como freelancer, o LovaZero me deu vantagem competitiva. Consigo entregar projetos maiores e mais rápido.",
+    quote: "Como freelancer, o Lovable unlimited me deu vantagem competitiva. Hospedagem grátis inclusa e consigo entregar projetos maiores e mais rápido.",
     name: "Rafael C.",
     role: "Desenvolvedor Freelancer",
     initials: "RC",
@@ -23,7 +23,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section id="depoimentos" className="py-20 md:py-28 relative z-10">
+    <section id="depoimentos" className="py-20 md:py-28 relative z-10" aria-label="Depoimentos de quem usa Lovable grátis">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-bold text-center mb-12"
         >
-          O Que Nossos Usuários Dizem
+          Quem Usa Lovable Grátis Recomenda
         </motion.h2>
 
         <div className="grid md:grid-cols-3 gap-5">

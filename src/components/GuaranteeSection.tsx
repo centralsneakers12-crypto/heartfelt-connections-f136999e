@@ -5,12 +5,12 @@ const items = [
   { icon: Headphones, text: "Suporte dedicado" },
   { icon: RefreshCw, text: "Atualizações incluídas" },
   { icon: Download, text: "Instalação simples" },
-  { icon: Globe, text: "Chrome, Firefox, Edge e Opera" },
+  { icon: Globe, text: "Hospedagem grátis inclusa" },
 ];
 
 const GuaranteeSection = () => {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-20 md:py-28" aria-label="Garantia do Lovable grátis e ilimitado">
       <div className="container mx-auto px-4 text-center max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -18,9 +18,9 @@ const GuaranteeSection = () => {
           viewport={{ once: true }}
         >
           <ShieldCheck className="w-12 h-12 text-primary mx-auto mb-6" />
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Garantia de Satisfação</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Lovable Grátis com Garantia Total</h2>
           <p className="text-muted-foreground mb-10">
-            Testado e aprovado por centenas de criadores que já transformaram suas ideias em projetos reais.
+            Centenas de criadores já usam o Lovable de graça e ilimitado com o LovaZero. Hospedagem inclusa e suporte dedicado.
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
