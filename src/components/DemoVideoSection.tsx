@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import demoScreenshot from "@/assets/demo-screenshot.png";
 
 const DemoVideoSection = () => {
   return (
@@ -27,23 +28,12 @@ const DemoVideoSection = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="relative rounded-2xl overflow-hidden border border-border bg-card/50 shadow-2xl shadow-primary/10">
-            <div className="aspect-video w-full flex items-center justify-center bg-secondary/30 relative">
-              <iframe
-                className="w-full h-full absolute inset-0"
-                src=""
-                title="Demonstração LovaZero"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-              <div className="relative z-10 text-center p-8">
-                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3 border-2 border-primary/40">
-                  <svg className="w-7 h-7 text-primary ml-1" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-muted-foreground text-xs">Cole a URL do vídeo aqui</p>
-              </div>
-            </div>
+            <img
+              src={demoScreenshot}
+              alt="Demonstração do LovaZero em ação"
+              className="w-full h-auto"
+              loading="lazy"
+            />
           </div>
         </motion.div>
       </div>
