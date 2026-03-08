@@ -17,7 +17,7 @@ import FinalCTASection from "@/components/FinalCTASection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SupportCard from "@/components/SupportCard";
 import SocialProofNotification from "@/components/SocialProofNotification";
-import FreeTrialButton from "@/components/FreeTrialButton";
+
 
 const Index = () => {
   return (
