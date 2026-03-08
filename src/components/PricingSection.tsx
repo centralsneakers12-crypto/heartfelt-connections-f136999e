@@ -5,41 +5,41 @@ import { Check, Star, Crown, AlertTriangle } from "lucide-react";
 const plans = [
   {
     name: "1 Dia",
-    description: "Teste rápido do LovaZero",
+    description: "Teste o Lovable grátis por 24h",
     price: "R$ 40",
     badge: null,
-    features: ["LovaZero por 24h", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp"],
+    features: ["Lovable ilimitado por 24h", "Prompts unlimited", "Todos os navegadores", "Hospedagem inclusa", "Suporte via WhatsApp"],
     highlight: false,
   },
   {
     name: "7 Dias",
-    description: "Ideal para projetos curtos",
+    description: "Lovable de graça por uma semana",
     price: "R$ 70",
     badge: null,
-    features: ["LovaZero por 7 dias", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp"],
+    features: ["Lovable unlimited por 7 dias", "Prompts ilimitados", "Todos os navegadores", "Hospedagem inclusa", "Suporte via WhatsApp"],
     highlight: false,
   },
   {
     name: "30 Dias",
-    description: "Melhor custo-benefício",
+    description: "Lovable grátis pra sempre — melhor custo",
     price: "R$ 97",
     badge: "Mais Popular",
-    features: ["LovaZero por 30 dias", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp"],
+    features: ["Lovable ilimitado por 30 dias", "Prompts unlimited", "Todos os navegadores", "Hospedagem grátis", "Suporte via WhatsApp"],
     highlight: true,
   },
   {
     name: "Vitalício",
-    description: "Acesso para sempre",
+    description: "Lovable grátis pra sempre, de verdade",
     price: "R$ 297",
     badge: "Melhor Oferta",
-    features: ["LovaZero para sempre", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp", "Sem renovação"],
+    features: ["Lovable unlimited para sempre", "Prompts ilimitados", "Todos os navegadores", "Hospedagem grátis vitalícia", "Suporte via WhatsApp", "Sem renovação"],
     highlight: false,
   },
 ];
 
 const PricingSection = () => {
   return (
-    <section id="precos" className="py-20 md:py-28 relative z-10">
+    <section id="precos" className="py-20 md:py-28 relative z-10" aria-label="Preços para usar Lovable grátis e ilimitado">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,9 +52,9 @@ const PricingSection = () => {
             Oferta por Tempo Limitado
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Desbloqueie o <span className="text-gradient-purple">LovaZero</span>
+            Lovable Grátis e <span className="text-gradient-purple">Unlimited</span>
           </h2>
-          <p className="text-muted-foreground">Pagamento único. Sem assinatura. Sem surpresas.</p>
+          <p className="text-muted-foreground">Desbloqueie o Lovable ilimitado. Pagamento único. Sem surpresas. Hospedagem inclusa.</p>
         </motion.div>
 
         <motion.div
@@ -135,8 +135,8 @@ const PricingSection = () => {
         <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-xs text-muted-foreground">
           <span>🔒 Pagamento Seguro</span>
           <span>⚡ Ativação Instantânea</span>
-          <span>♾️ Uso Ilimitado</span>
-          <span>💳 Pagamento Único</span>
+          <span>♾️ Lovable Unlimited</span>
+          <span>🌐 Hospedagem Grátis</span>
         </div>
       </div>
     </section>

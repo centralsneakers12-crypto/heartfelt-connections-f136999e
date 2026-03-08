@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { BookOpen, Video, MessageCircle, RefreshCw } from "lucide-react";
 
 const bonuses = [
-  { icon: BookOpen, text: "Tutorial completo de instalação" },
-  { icon: Video, text: "Vídeos de uso avançado" },
+  { icon: BookOpen, text: "Tutorial: como usar Lovable grátis" },
+  { icon: Video, text: "Vídeos de uso avançado do Lovable" },
   { icon: MessageCircle, text: "Suporte via WhatsApp" },
   { icon: RefreshCw, text: "Atualizações automáticas" },
 ];
 
 const BonusSection = () => {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-20 md:py-28" aria-label="Bônus para usar Lovable de graça">
       <div className="container mx-auto px-4 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -18,9 +18,9 @@ const BonusSection = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-bold mb-4"
         >
-          Bônus Exclusivo
+          Bônus: Lovable Grátis com Extras
         </motion.h2>
-        <p className="text-muted-foreground mb-12">Ao adquirir qualquer plano, você ganha acesso a:</p>
+        <p className="text-muted-foreground mb-12">Ao adquirir qualquer plano de Lovable unlimited, você ganha acesso a:</p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
           {bonuses.map((b, i) => (

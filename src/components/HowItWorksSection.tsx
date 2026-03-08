@@ -2,17 +2,17 @@ import { motion } from "framer-motion";
 import useStarSound from "@/hooks/useStarSound";
 
 const steps = [
-  { step: "01", title: "Escolha seu plano", description: "Selecione o plano ideal para desbloquear o LovaZero." },
+  { step: "01", title: "Escolha seu plano", description: "Selecione o plano ideal e comece a usar o Lovable de graça." },
   { step: "02", title: "Instale a extensão", description: "Instale no Chrome, Firefox, Edge ou Opera em segundos." },
   { step: "03", title: "Ative sua licença", description: "Ativação instantânea com sua chave de acesso." },
-  { step: "04", title: "Use sem limites", description: "Pronto! Agora o Lovable é ilimitado para você." },
+  { step: "04", title: "Lovable Unlimited", description: "Pronto! Agora o Lovable é grátis, ilimitado e com hospedagem inclusa." },
 ];
 
 const HowItWorksSection = () => {
   const playStarSound = useStarSound();
 
   return (
-    <section id="como-funciona" className="py-20 md:py-28 relative z-10">
+    <section id="como-funciona" className="py-20 md:py-28 relative z-10" aria-label="Como usar Lovable grátis pra sempre">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,8 +20,8 @@ const HowItWorksSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Como Funciona?</h2>
-          <p className="text-muted-foreground">Setup rápido em 4 passos simples.</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Como Usar Lovable Grátis?</h2>
+          <p className="text-muted-foreground">Veja como ter Lovable unlimited em 4 passos simples.</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
