@@ -23,7 +23,7 @@ const HeroSection = () => {
           transition={{ duration: 0.4, delay: 0.1 }}
           className="mb-4"
         >
-          <span className="inline-flex items-center gap-2 bg-secondary/60 border border-border rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+          <span className="inline-flex items-center gap-2 bg-destructive/15 border border-destructive/30 rounded-full px-3 py-1.5 text-xs text-destructive font-semibold">
             <Clock className="w-3.5 h-3.5" />
             Oferta válida apenas hoje
           </span>
