@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
 
@@ -19,7 +19,7 @@ const plans = ["Mensal", "Trimestral", "Anual"];
 
 const getRandomItem = <T,>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
 
-const SocialProofNotification = () => {
+const SocialProofNotification = memo(() => {
   const [visible, setVisible] = useState(false);
   const [data, setData] = useState({ name: "", city: "", plan: "", time: "" });
 
@@ -53,7 +53,7 @@ const SocialProofNotification = () => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -100, opacity: 0 }}
           transition={{ type: "spring", damping: 20, stiffness: 300 }}
-          className="fixed bottom-6 left-6 z-50 flex items-center gap-3 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-4 py-3 shadow-2xl max-w-xs"
+          className="fixed bottom-6 left-6 z-50 flex items-center gap-3 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-4 py-3 shadow-2xl max-w-xs will-change-transform"
         >
           <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
             <ShoppingCart className="w-5 h-5 text-primary" />
@@ -71,6 +71,8 @@ const SocialProofNotification = () => {
       )}
     </AnimatePresence>
   );
-};
+});
+
+SocialProofNotification.displayName = "SocialProofNotification";
 
 export default SocialProofNotification;
