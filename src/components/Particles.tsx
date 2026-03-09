@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 
-const Particles = () => {
+const Particles = memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const Particles = () => {
 
     let animationId: number;
     const stars: { x: number; y: number; z: number; pz: number; size: number; color: string }[] = [];
-    const STAR_COUNT = 280;
+    const STAR_COUNT = 150; // Reduced for performance
     const colors = [
       "hsla(270,80%,70%,", "hsla(280,75%,65%,", "hsla(300,80%,75%,",
       "hsla(240,60%,80%,", "hsla(200,70%,80%,", "hsla(0,0%,100%,"
@@ -35,8 +35,17 @@ const Particles = () => {
       });
     }
 
-    const animate = () => {
-      ctx.fillStyle = "rgba(0,0,0,0)";
+    let lastTime = 0;
+    const targetFPS = 30;
+    const frameInterval = 1000 / targetFPS;
+
+    const animate = (currentTime: number) => {
+      animationId = requestAnimationFrame(animate);
+      
+      const delta = currentTime - lastTime;
+      if (delta < frameInterval) return;
+      lastTime = currentTime - (delta % frameInterval);
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const cx = canvas.width / 2;
@@ -55,43 +64,29 @@ const Particles = () => {
         const r = Math.max(0.1, (1 - star.z / 1000) * star.size * 2.5);
         const opacity = (1 - star.z / 1000) * 0.9;
 
-        // Twinkle
-        const twinkle = 0.6 + Math.sin(Date.now() * 0.003 + star.x) * 0.4;
+        const twinkle = 0.6 + Math.sin(currentTime * 0.003 + star.x) * 0.4;
 
         ctx.beginPath();
         ctx.arc(sx, sy, r, 0, Math.PI * 2);
         ctx.fillStyle = `${star.color}${(opacity * twinkle).toFixed(2)})`;
         ctx.fill();
 
-        // Glow
-        if (r > 1) {
+        // Only add glow for larger stars
+        if (r > 1.5) {
           ctx.beginPath();
-          ctx.arc(sx, sy, r * 3, 0, Math.PI * 2);
-          const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, r * 3);
-          grad.addColorStop(0, `${star.color}${(opacity * 0.3 * twinkle).toFixed(2)})`);
+          ctx.arc(sx, sy, r * 2.5, 0, Math.PI * 2);
+          const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, r * 2.5);
+          grad.addColorStop(0, `${star.color}${(opacity * 0.25 * twinkle).toFixed(2)})`);
           grad.addColorStop(1, `${star.color}0)`);
           ctx.fillStyle = grad;
           ctx.fill();
         }
 
-        // Streak
-        if (star.pz > 0) {
-          const px = (star.x / star.pz) * 300 + cx;
-          const py = (star.y / star.pz) * 300 + cy;
-          ctx.beginPath();
-          ctx.moveTo(px, py);
-          ctx.lineTo(sx, sy);
-          ctx.strokeStyle = `${star.color}${(opacity * 0.15).toFixed(2)})`;
-          ctx.lineWidth = r * 0.5;
-          ctx.stroke();
-        }
         star.pz = star.z;
       }
-
-      animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(animationId);
@@ -103,9 +98,11 @@ const Particles = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: "transparent" }}
+      style={{ background: "transparent", willChange: "transform" }}
     />
   );
-};
+});
+
+Particles.displayName = "Particles";
 
 export default Particles;
