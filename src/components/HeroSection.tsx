@@ -35,9 +35,9 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-4"
         >
-          Lovable Grátis e Unlimited.
+          Extensão Lovable Ilimitado.
           <br />
-          <span className="text-gradient-purple">Pra sempre.</span>
+          <span className="text-gradient-purple">Sem Gastar Créditos.</span>
         </motion.h1>
 
         <motion.p
