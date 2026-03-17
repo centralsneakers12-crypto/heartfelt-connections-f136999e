@@ -60,7 +60,7 @@ const HeroSection = () => {
             asChild
             className="h-12 px-8 text-sm font-bold rounded-xl gap-2 glow-purple bg-gradient-to-r from-primary to-accent hover:opacity-90"
           >
-            <a href="https://wa.me/5547989295131?text=Ol%C3%A1%2C%20quero%20testar%20o%20LovaZero%20gr%C3%A1tis%20por%2010%20minutos!" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5511930105875?text=Ol%C3%A1%2C%20quero%20testar%20o%20LovaZero%20gr%C3%A1tis%20por%2010%20minutos!" target="_blank" rel="noopener noreferrer">
               🚀 TESTE GRÁTIS
               <ArrowRight className="w-4 h-4" />
             </a>

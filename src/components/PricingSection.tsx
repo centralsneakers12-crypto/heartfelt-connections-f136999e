@@ -115,7 +115,7 @@ const PricingSection = () => {
                 asChild
               >
                 <a
-                  href={`https://wa.me/5547989295131?text=${encodeURIComponent(`Olá, Gostaria de saber mais sobre o plano ${plan.name}`)}`}
+                  href={`https://wa.me/5511930105875?text=${encodeURIComponent(`Olá, Gostaria de saber mais sobre o plano ${plan.name}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
