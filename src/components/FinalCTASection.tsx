@@ -27,7 +27,7 @@ const FinalCTASection = () => {
           </p>
 
           <Button size="lg" asChild className="h-16 px-12 text-lg font-black rounded-2xl gap-3 glow-purple bg-gradient-to-r from-primary to-accent hover:opacity-90 animate-pulse">
-            <a href="https://wa.me/5547989295131?text=Ol%C3%A1%2C%20quero%20testar%20o%20LovaZero%20gr%C3%A1tis%20por%2010%20minutos!" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5511930105875?text=Ol%C3%A1%2C%20quero%20testar%20o%20LovaZero%20gr%C3%A1tis%20por%2010%20minutos!" target="_blank" rel="noopener noreferrer">
               🚀 TESTE LOVABLE GRÁTIS
               <ArrowRight className="w-5 h-5" />
             </a>

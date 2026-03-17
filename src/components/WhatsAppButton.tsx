@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5547989295131?text=Ol%C3%A1%2C%20Gostaria%20de%20saber%20mais%20sobre%20o%20LovaZero";
+const WHATSAPP_URL = "https://wa.me/5511930105875?text=Ol%C3%A1%2C%20Gostaria%20de%20saber%20mais%20sobre%20o%20LovaZero";
 
 const WhatsAppButton = memo(() => {
   return (

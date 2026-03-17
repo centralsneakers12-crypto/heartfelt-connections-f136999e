@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5547989295131?text=Ol%C3%A1%2C%20quero%20testar%20o%20LovaZero%20gr%C3%A1tis%20por%2010%20minutos!";
+const WHATSAPP_URL = "https://wa.me/5511930105875?text=Ol%C3%A1%2C%20quero%20testar%20o%20LovaZero%20gr%C3%A1tis%20por%2010%20minutos!";
 
 const FreeTrialButton = () => {
   return (

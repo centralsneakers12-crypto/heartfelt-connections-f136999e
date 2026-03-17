@@ -25,7 +25,7 @@ const Navbar = () => {
         </div>
 
         <Button asChild size="sm">
-          <a href="https://wa.me/5547989295131?text=Ol%C3%A1%2C%20Gostaria%20de%20saber%20mais%20sobre%20o%20LovaZero" target="_blank" rel="noopener noreferrer">Desbloquear</a>
+          <a href="https://wa.me/5511930105875?text=Ol%C3%A1%2C%20Gostaria%20de%20saber%20mais%20sobre%20o%20LovaZero" target="_blank" rel="noopener noreferrer">Desbloquear</a>
         </Button>
       </div>
     </nav>
