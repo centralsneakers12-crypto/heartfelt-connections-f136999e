@@ -59,6 +59,42 @@ export type Database = {
         }
         Relationships: []
       }
+      test_licenses: {
+        Row: {
+          assigned_at: string | null
+          assigned_to_fingerprint: string | null
+          assigned_to_ip: string | null
+          assigned_to_name: string | null
+          assigned_to_whatsapp: string | null
+          created_at: string
+          id: string
+          is_used: boolean
+          license_key: string
+        }
+        Insert: {
+          assigned_at?: string | null
+          assigned_to_fingerprint?: string | null
+          assigned_to_ip?: string | null
+          assigned_to_name?: string | null
+          assigned_to_whatsapp?: string | null
+          created_at?: string
+          id?: string
+          is_used?: boolean
+          license_key: string
+        }
+        Update: {
+          assigned_at?: string | null
+          assigned_to_fingerprint?: string | null
+          assigned_to_ip?: string | null
+          assigned_to_name?: string | null
+          assigned_to_whatsapp?: string | null
+          created_at?: string
+          id?: string
+          is_used?: boolean
+          license_key?: string
+        }
+        Relationships: []
+      }
       trial_keys: {
         Row: {
           client_name: string
