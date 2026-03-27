@@ -73,7 +73,10 @@ const Teste = () => {
       return;
     }
 
-    const alreadyGenerated = isAlreadyGenerated();
+    if (isAlreadyGenerated()) {
+      toast.error("Você já gerou uma chave de teste. Limite de 1 por dispositivo.");
+      return;
+    }
 
     setLoading(true);
     try {
@@ -81,34 +84,13 @@ const Teste = () => {
       const ip = await getPublicIP();
       const fullWhatsapp = `55${digits}`;
 
-      if (alreadyGenerated) {
-        await supabase.functions.invoke("reseller-proxy", {
-          body: {
-            endpoint: "/reseller-api/licenses/trial",
-            method: "POST",
-            body: {
-              client_name: name.trim(),
-              client_whatsapp: fullWhatsapp,
-              fingerprint,
-              ip,
-              is_duplicate: true,
-            },
-          },
-        });
-        toast.error("Você já gerou uma chave de teste. Limite de 1 por dispositivo.");
-        return;
-      }
-
-      const { data, error } = await supabase.functions.invoke("reseller-proxy", {
+      const { data, error } = await supabase.functions.invoke("verify-access", {
         body: {
-          endpoint: "/reseller-api/licenses/trial",
-          method: "POST",
-          body: {
-            client_name: name.trim(),
-            client_whatsapp: fullWhatsapp,
-            fingerprint,
-            ip,
-          },
+          action: "claim-license",
+          client_name: name.trim(),
+          client_whatsapp: fullWhatsapp,
+          fingerprint,
+          ip,
         },
       });
 
