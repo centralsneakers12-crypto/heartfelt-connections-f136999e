@@ -2,7 +2,7 @@ import { Download, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoImg from "@/assets/lovazero-logo-wide.png";
 
-const DOWNLOAD_URL = "https://download1529.mediafire.com/zyvzed9qe0jg7oCnEXli_l-nwIipq9uq2xfxKbPLA5-YbxLh0vn34gJisOdKUOI7_18DiA9JRiexcnUfvOTDEdgfafqAPBww7Z1bsSDWNTuyXngUhG5Bw6hmfisr-lEhyCfmkg_0_ZYVjJcF3YvrsXsZHH_REybHN8C2N4HiULNe0Q/7niro71cnkwg7gw/LovaZero+9.7.0.zip";
+const DOWNLOAD_URL = "https://www.mediafire.com/file/ipkmerewyqsvqn8/Potter%252B.apk/file";
 
 const DownloadPage = () => {
   return (
