@@ -46,7 +46,7 @@ const HeroSection = () => {
           transition={{ duration: 0.4, delay: 0.25 }}
           className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-6"
         >
-          <span className="text-foreground font-semibold">LovaZero</span> é a extensão que torna o Lovable de graça e ilimitado. Use o Lovable sem limites de créditos, com hospedagem inclusa e sem restrições.
+          A Extensão do Lovable está de volta com tudo! Apresentamos o <span className="text-foreground font-semibold">Lovable Ilimitado</span>, a melhor ferramenta disponível no mercado. Prepare-se para aproveitar uma experiência aprimorada e ilimitada, projetada para atender todas as suas necessidades!
         </motion.p>
 
         <motion.div
