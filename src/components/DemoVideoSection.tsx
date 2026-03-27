@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import demoScreenshot from "@/assets/demo-screenshot.png";
+
+const demoScreenshot = "https://i.imgur.com/PJIeDSC.png";
 
 const DemoVideoSection = () => {
   return (
