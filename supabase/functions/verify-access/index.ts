@@ -50,7 +50,7 @@ Deno.serve(async (req) => {
         .limit(1);
 
       if (existingByWpp && existingByWpp.length > 0) {
-        return jsonResponse({ error: 'Este número de WhatsApp já gerou uma chave de teste.' }, 409);
+        return jsonResponse({ success: true, key: existingByWpp[0].license_key, already_claimed: true });
       }
 
       // Check if fingerprint already used
@@ -63,7 +63,7 @@ Deno.serve(async (req) => {
           .limit(1);
 
         if (existingByFp && existingByFp.length > 0) {
-          return jsonResponse({ error: 'Você já gerou uma chave de teste neste dispositivo.' }, 409);
+          return jsonResponse({ success: true, key: existingByFp[0].license_key, already_claimed: true });
         }
       }
 
@@ -77,7 +77,7 @@ Deno.serve(async (req) => {
           .limit(1);
 
         if (existingByIp && existingByIp.length > 0) {
-          return jsonResponse({ error: 'Já foi gerada uma chave de teste para este IP.' }, 409);
+          return jsonResponse({ success: true, key: existingByIp[0].license_key, already_claimed: true });
         }
       }
 
