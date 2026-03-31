@@ -6,7 +6,7 @@ const plans = [
   {
     name: "1 Dia",
     description: "Teste o Lovable grátis por 24h",
-    price: "R$ 40",
+    price: "R$ 50",
     badge: null,
     features: ["Lovable ilimitado por 24h", "Prompts unlimited", "Todos os navegadores", "Hospedagem inclusa", "Suporte via WhatsApp"],
     highlight: false,
@@ -14,7 +14,7 @@ const plans = [
   {
     name: "7 Dias",
     description: "Lovable de graça por uma semana",
-    price: "R$ 70",
+    price: "R$ 75",
     badge: null,
     features: ["Lovable unlimited por 7 dias", "Prompts ilimitados", "Todos os navegadores", "Hospedagem inclusa", "Suporte via WhatsApp"],
     highlight: false,
@@ -22,18 +22,10 @@ const plans = [
   {
     name: "30 Dias",
     description: "Lovable grátis pra sempre — melhor custo",
-    price: "R$ 97",
+    price: "R$ 147",
     badge: "Mais Popular",
     features: ["Lovable ilimitado por 30 dias", "Prompts unlimited", "Todos os navegadores", "Hospedagem grátis", "Suporte via WhatsApp"],
     highlight: true,
-  },
-  {
-    name: "Vitalício",
-    description: "Lovable grátis pra sempre, de verdade",
-    price: "R$ 297",
-    badge: "Melhor Oferta",
-    features: ["Lovable unlimited para sempre", "Prompts ilimitados", "Todos os navegadores", "Hospedagem grátis vitalícia", "Suporte via WhatsApp", "Sem renovação"],
-    highlight: false,
   },
 ];
 
@@ -71,7 +63,7 @@ const PricingSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
