@@ -98,14 +98,16 @@ const Teste = () => {
 
       if (data?.success && data?.key) {
         setGeneratedKey(data.key);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
-          generated: true,
-          whatsapp: fullWhatsapp,
-          fingerprint,
-          ip,
-          timestamp: Date.now(),
-        }));
-        toast.success("Chave de teste gerada com sucesso!");
+        if (!data.already_claimed) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            generated: true,
+            whatsapp: fullWhatsapp,
+            fingerprint,
+            ip,
+            timestamp: Date.now(),
+          }));
+        }
+        toast.success(data.already_claimed ? "Sua chave de teste já foi gerada anteriormente." : "Chave de teste gerada com sucesso!");
       } else if (data?.error) {
         toast.error(data.error);
       } else {
