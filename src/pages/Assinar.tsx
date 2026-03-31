@@ -7,7 +7,7 @@ const plans = [
   {
     name: "1 Dia",
     description: "Teste rápido do LovaZero",
-    price: "R$ 40",
+    price: "R$ 50",
     badge: null,
     checkoutUrl: "https://pay.cakto.com.br/3arjoap_797657",
     features: ["LovaZero por 24h", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp"],
@@ -16,7 +16,7 @@ const plans = [
   {
     name: "7 Dias",
     description: "Ideal para projetos curtos",
-    price: "R$ 70",
+    price: "R$ 75",
     badge: null,
     checkoutUrl: "https://pay.cakto.com.br/3dtnsiv_797667",
     features: ["LovaZero por 7 dias", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp"],
@@ -25,21 +25,12 @@ const plans = [
   {
     name: "30 Dias",
     description: "Melhor custo-benefício",
-    price: "R$ 97",
+    price: "R$ 147",
     badge: "Mais Popular",
     checkoutUrl: "https://pay.cakto.com.br/35bpeyx_797588",
     features: ["LovaZero por 30 dias", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp"],
     highlight: true,
     cta: "🔥 GARANTIR AGORA",
-  },
-  {
-    name: "Vitalício",
-    description: "Acesso para sempre",
-    price: "R$ 297",
-    badge: "Melhor Oferta",
-    checkoutUrl: "https://pay.cakto.com.br/w7ithhf_797652",
-    features: ["LovaZero para sempre", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp", "Sem renovação"],
-    highlight: false,
   },
 ];
 
