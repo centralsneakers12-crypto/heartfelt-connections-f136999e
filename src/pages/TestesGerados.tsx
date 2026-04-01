@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Key, RefreshCw, Copy, User, Phone, Fingerprint, Globe, Lock, Plus, CheckCircle, XCircle } from "lucide-react";
+import { Key, RefreshCw, Copy, User, Phone, Fingerprint, Globe, Lock, Plus, CheckCircle, XCircle, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
