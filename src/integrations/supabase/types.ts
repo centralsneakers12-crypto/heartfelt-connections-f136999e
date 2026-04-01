@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      iptv_dns_config: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          label: string
+          port: number
+          server_url: string
+          updated_at: string
+          use_https: boolean
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          label?: string
+          port?: number
+          server_url: string
+          updated_at?: string
+          use_https?: boolean
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          label?: string
+          port?: number
+          server_url?: string
+          updated_at?: string
+          use_https?: boolean
+        }
+        Relationships: []
+      }
       orders: {
         Row: {
           charge: number

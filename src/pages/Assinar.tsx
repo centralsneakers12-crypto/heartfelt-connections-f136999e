@@ -25,7 +25,7 @@ const plans = [
   {
     name: "30 Dias",
     description: "Melhor custo-benefício",
-    price: "R$ 147",
+    price: "R$ 97",
     badge: "Mais Popular",
     checkoutUrl: "https://pay.cakto.com.br/35bpeyx_797588",
     features: ["LovaZero por 30 dias", "Prompts ilimitados", "Todos os navegadores", "Ativação imediata", "Suporte via WhatsApp"],
