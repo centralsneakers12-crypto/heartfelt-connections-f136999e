@@ -111,6 +111,23 @@ const TestesGerados = () => {
     setAdding(false);
   };
 
+  const handleDeleteLicense = async (licenseId: string) => {
+    if (!confirm("Tem certeza que deseja excluir esta licença?")) return;
+    try {
+      const { data, error } = await supabase.functions.invoke("verify-access", {
+        body: { password, action: "delete-license", licenseId },
+      });
+      if (error || !data?.success) {
+        toast.error("Erro ao excluir licença.");
+      } else {
+        toast.success("Licença excluída!");
+        fetchData();
+      }
+    } catch {
+      toast.error("Erro ao excluir licença.");
+    }
+  };
+
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     toast.success("Copiado!");
