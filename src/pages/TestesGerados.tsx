@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Key, RefreshCw, Copy, User, Phone, Fingerprint, Globe, Lock, Plus, CheckCircle, XCircle } from "lucide-react";
+import { Key, RefreshCw, Copy, User, Phone, Fingerprint, Globe, Lock, Plus, CheckCircle, XCircle, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -111,6 +111,23 @@ const TestesGerados = () => {
     setAdding(false);
   };
 
+  const handleDeleteLicense = async (licenseId: string) => {
+    if (!confirm("Tem certeza que deseja excluir esta licença?")) return;
+    try {
+      const { data, error } = await supabase.functions.invoke("verify-access", {
+        body: { password, action: "delete-license", licenseId },
+      });
+      if (error || !data?.success) {
+        toast.error("Erro ao excluir licença.");
+      } else {
+        toast.success("Licença excluída!");
+        fetchData();
+      }
+    } catch {
+      toast.error("Erro ao excluir licença.");
+    }
+  };
+
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     toast.success("Copiado!");
@@ -202,9 +219,14 @@ const TestesGerados = () => {
                           {lic.license_key}
                         </span>
                       </div>
-                      <Button size="sm" variant="ghost" onClick={() => copyToClipboard(lic.license_key)}>
-                        <Copy className="w-3.5 h-3.5 mr-1" /> Copiar
-                      </Button>
+                      <div className="flex items-center gap-1">
+                        <Button size="sm" variant="ghost" onClick={() => copyToClipboard(lic.license_key)}>
+                          <Copy className="w-3.5 h-3.5 mr-1" /> Copiar
+                        </Button>
+                        <Button size="sm" variant="ghost" className="text-destructive hover:text-destructive" onClick={() => handleDeleteLicense(lic.id)}>
+                          <Trash2 className="w-3.5 h-3.5 mr-1" /> Excluir
+                        </Button>
+                      </div>
                     </div>
 
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">

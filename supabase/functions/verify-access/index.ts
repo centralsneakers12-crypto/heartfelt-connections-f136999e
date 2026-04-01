@@ -141,6 +141,25 @@ Deno.serve(async (req) => {
 
     const supabase = getSupabase();
 
+    // --- ACTION: delete-license ---
+    if (action === 'delete-license') {
+      const licenseId = body?.licenseId;
+      if (!licenseId || typeof licenseId !== 'string') {
+        return jsonResponse({ error: 'ID da licença inválido' }, 400);
+      }
+
+      const { error: delErr } = await supabase
+        .from('test_licenses')
+        .delete()
+        .eq('id', licenseId);
+
+      if (delErr) {
+        return jsonResponse({ error: 'Erro ao excluir licença' }, 500);
+      }
+
+      return jsonResponse({ success: true });
+    }
+
     // --- ACTION: add-licenses ---
     if (action === 'add-licenses') {
       const keys = body?.keys;
