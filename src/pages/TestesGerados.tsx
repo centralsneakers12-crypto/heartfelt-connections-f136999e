@@ -219,9 +219,14 @@ const TestesGerados = () => {
                           {lic.license_key}
                         </span>
                       </div>
-                      <Button size="sm" variant="ghost" onClick={() => copyToClipboard(lic.license_key)}>
-                        <Copy className="w-3.5 h-3.5 mr-1" /> Copiar
-                      </Button>
+                      <div className="flex items-center gap-1">
+                        <Button size="sm" variant="ghost" onClick={() => copyToClipboard(lic.license_key)}>
+                          <Copy className="w-3.5 h-3.5 mr-1" /> Copiar
+                        </Button>
+                        <Button size="sm" variant="ghost" className="text-destructive hover:text-destructive" onClick={() => handleDeleteLicense(lic.id)}>
+                          <Trash2 className="w-3.5 h-3.5 mr-1" /> Excluir
+                        </Button>
+                      </div>
                     </div>
 
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
