@@ -22,7 +22,7 @@ const plans = [
   {
     name: "30 Dias",
     description: "Lovable grátis pra sempre — melhor custo",
-    price: "R$ 147",
+    price: "R$ 97",
     badge: "Mais Popular",
     features: ["Lovable ilimitado por 30 dias", "Prompts unlimited", "Todos os navegadores", "Hospedagem grátis", "Suporte via WhatsApp"],
     highlight: true,
