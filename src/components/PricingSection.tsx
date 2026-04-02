@@ -1,24 +1,35 @@
 import { motion } from "framer-motion";
-import { Clock, Zap, Crown, AlertTriangle } from "lucide-react";
+import { Clock, Zap, Crown, AlertTriangle, Check, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  type FeatureItem,
-  PricingTable,
-  PricingTableBody,
-  PricingTableHeader,
-  PricingTableHead,
-  PricingTableRow,
-  PricingTableCell,
-  PricingTablePlan,
-} from "@/components/ui/pricing-table";
 
-const FEATURES: FeatureItem[] = [
-  { label: "Duração", values: ["24 horas", "7 dias", "30 dias"] },
-  { label: "Prompts ilimitados", values: [true, true, true] },
-  { label: "Todos os navegadores", values: [true, true, true] },
-  { label: "Hospedagem inclusa", values: [true, true, true] },
-  { label: "Suporte via WhatsApp", values: [true, true, true] },
-  { label: "Melhor custo-benefício", values: [false, false, true] },
+const plans = [
+  {
+    name: "1 Dia",
+    icon: Clock,
+    badge: "Teste Rápido",
+    price: "R$ 50",
+    features: ["LovaZero por 24h", "Prompts ilimitados", "Todos os navegadores", "Hospedagem inclusa", "Suporte via WhatsApp"],
+    highlight: false,
+    whatsappMsg: "Olá, Gostaria de saber mais sobre o plano 1 Dia",
+  },
+  {
+    name: "7 Dias",
+    icon: Zap,
+    badge: "Mais Flexível",
+    price: "R$ 75",
+    features: ["LovaZero por 7 dias", "Prompts ilimitados", "Todos os navegadores", "Hospedagem inclusa", "Suporte via WhatsApp"],
+    highlight: false,
+    whatsappMsg: "Olá, Gostaria de saber mais sobre o plano 7 Dias",
+  },
+  {
+    name: "30 Dias",
+    icon: Crown,
+    badge: "Mais Popular",
+    price: "R$ 97",
+    features: ["LovaZero por 30 dias", "Prompts ilimitados", "Todos os navegadores", "Hospedagem inclusa", "Suporte via WhatsApp", "Melhor custo-benefício"],
+    highlight: true,
+    whatsappMsg: "Olá, Gostaria de saber mais sobre o plano 30 Dias",
+  },
 ];
 
 const PricingSection = () => {
@@ -55,91 +66,84 @@ const PricingSection = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <PricingTable className="mx-auto max-w-5xl">
-            <PricingTableHeader>
-              <PricingTableRow>
-                <th />
-                <th className="p-1">
-                  <PricingTablePlan
-                    name="1 Dia"
-                    badge="Teste Rápido"
-                    price="R$ 50"
-                    icon={Clock}
-                  >
-                    <Button variant="outline" className="w-full rounded-lg" size="lg" asChild>
-                      <a
-                        href={`https://wa.me/5511930105875?text=${encodeURIComponent("Olá, Gostaria de saber mais sobre o plano 1 Dia")}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        DESBLOQUEAR
-                      </a>
-                    </Button>
-                  </PricingTablePlan>
-                </th>
-                <th className="p-1">
-                  <PricingTablePlan
-                    name="7 Dias"
-                    badge="Mais Flexível"
-                    price="R$ 75"
-                    icon={Zap}
-                  >
-                    <Button variant="outline" className="w-full rounded-lg" size="lg" asChild>
-                      <a
-                        href={`https://wa.me/5511930105875?text=${encodeURIComponent("Olá, Gostaria de saber mais sobre o plano 7 Dias")}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        DESBLOQUEAR
-                      </a>
-                    </Button>
-                  </PricingTablePlan>
-                </th>
-                <th className="p-1">
-                  <PricingTablePlan
-                    name="30 Dias"
-                    badge="Mais Popular"
-                    price="R$ 97"
-                    icon={Crown}
-                    className="after:pointer-events-none after:absolute after:-inset-0.5 after:rounded-[inherit] after:bg-gradient-to-b after:from-primary/15 after:to-transparent after:blur-[2px]"
-                  >
-                    <Button
-                      className="w-full rounded-lg bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground"
-                      size="lg"
-                      asChild
-                    >
-                      <a
-                        href={`https://wa.me/5511930105875?text=${encodeURIComponent("Olá, Gostaria de saber mais sobre o plano 30 Dias")}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        🔥 GARANTIR AGORA
-                      </a>
-                    </Button>
-                  </PricingTablePlan>
-                </th>
-              </PricingTableRow>
-            </PricingTableHeader>
-            <PricingTableBody>
-              {FEATURES.map((feature, index) => (
-                <PricingTableRow key={index}>
-                  <PricingTableHead>{feature.label}</PricingTableHead>
-                  {feature.values.map((value, i) => (
-                    <PricingTableCell key={i}>{value}</PricingTableCell>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+          {plans.map((plan, index) => {
+            const Icon = plan.icon;
+            return (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + index * 0.1 }}
+                className={`relative rounded-2xl border p-6 flex flex-col transition-all duration-300 ${
+                  plan.highlight
+                    ? "border-primary bg-primary/5 shadow-[0_0_30px_-5px_hsl(var(--primary)/0.3)] scale-[1.02]"
+                    : "border-border bg-card hover:border-primary/40"
+                }`}
+              >
+                {plan.highlight && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1.5 whitespace-nowrap shadow-lg">
+                    <Crown className="w-3 h-3" />
+                    {plan.badge}
+                  </span>
+                )}
+
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center justify-center rounded-full border border-primary/30 bg-primary/10 p-2">
+                    <Icon className="h-4 w-4 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-bold">{plan.name}</h3>
+                  {!plan.highlight && (
+                    <span className="ml-auto text-[10px] font-medium bg-secondary text-secondary-foreground px-2 py-0.5 rounded-full">
+                      {plan.badge}
+                    </span>
+                  )}
+                </div>
+
+                <div className="mb-1">
+                  <span className="text-4xl font-bold">{plan.price}</span>
+                </div>
+                <p className="text-xs text-muted-foreground mb-6">Pagamento único via PIX</p>
+
+                <ul className="space-y-3 mb-8 flex-1">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2.5 text-sm">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center">
+                        <Check className="w-3 h-3 text-primary" />
+                      </div>
+                      {feature}
+                    </li>
                   ))}
-                </PricingTableRow>
-              ))}
-            </PricingTableBody>
-          </PricingTable>
-        </motion.div>
+                </ul>
+
+                <Button
+                  className={`w-full font-bold text-base py-5 ${plan.highlight ? "bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg" : ""}`}
+                  variant={plan.highlight ? "default" : "outline"}
+                  size="lg"
+                  asChild
+                >
+                  <a
+                    href={`https://wa.me/5511930105875?text=${encodeURIComponent(plan.whatsappMsg)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {plan.highlight ? "🔥 GARANTIR AGORA" : "DESBLOQUEAR"}
+                  </a>
+                </Button>
+
+                {plan.highlight && (
+                  <p className="text-[10px] text-center text-muted-foreground mt-2">
+                    ⚡ Últimas vagas com este preço
+                  </p>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
 
         <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-xs text-muted-foreground">
-          <span>🔒 Pagamento Seguro</span>
+          <span className="flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5" /> Pagamento Seguro</span>
           <span>⚡ Ativação Instantânea</span>
           <span>♾️ Lovable Unlimited</span>
           <span>🌐 Hospedagem Grátis</span>
